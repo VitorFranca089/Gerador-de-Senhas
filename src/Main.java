@@ -28,7 +28,11 @@ public class Main {
         int randomCharIndex;
 
         for(int i = 0; i < sizePass; i++){
-            randomCharsetIndex = random.nextInt(chosenCharset.size());
+            if(i < chosenCharset.size()){
+                randomCharsetIndex = i;
+            } else {
+                randomCharsetIndex = random.nextInt(chosenCharset.size());
+            }
             randomCharIndex = random.nextInt(chosenCharset.get(randomCharsetIndex).length);
             stringBuffer.append(chosenCharset.get(randomCharsetIndex)[randomCharIndex]);
         }
