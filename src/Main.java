@@ -1,10 +1,11 @@
+import java.security.SecureRandom;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
+        Random secureRandom = new SecureRandom();
 
         int sizePass = scanner.nextInt();
         StringBuffer stringBuffer = new StringBuffer(sizePass);
@@ -31,9 +32,9 @@ public class Main {
             if(i < chosenCharset.size()){
                 randomCharsetIndex = i;
             } else {
-                randomCharsetIndex = random.nextInt(chosenCharset.size());
+                randomCharsetIndex = secureRandom.nextInt(chosenCharset.size());
             }
-            randomCharIndex = random.nextInt(chosenCharset.get(randomCharsetIndex).length);
+            randomCharIndex = secureRandom.nextInt(chosenCharset.get(randomCharsetIndex).length);
             stringBuffer.append(chosenCharset.get(randomCharsetIndex)[randomCharIndex]);
         }
 
